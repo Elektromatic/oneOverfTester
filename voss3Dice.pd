@@ -1,0 +1,82 @@
+#N canvas 955 13 674 446 12;
+#X obj 260 256 random 6;
+#X obj 189 256 random 6;
+#X obj 118 256 random 6;
+#X msg 470 283 line 0;
+#X msg 427 283 step;
+#X obj 427 305 text sequence diceRoll -g;
+#X obj 118 230 r oneRoll;
+#X obj 189 230 r twoRoll;
+#X obj 260 230 r threeRoll;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array \$1 8 float 3;
+#A 0 6 7 6 13 8 7 6 3;
+#X coords 0 16 8 0 100 70 2 0 0;
+#X restore 146 71 graph;
+#X obj 390 173 metro 10;
+#X obj 390 66 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 390 91 t b b;
+#X obj 390 204 f;
+#X obj 439 204 + 1;
+#X msg 390 117 1;
+#X obj 390 147 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 467 122 0;
+#X floatatom 391 257 5 0 0 0 - - -, f 5;
+#X msg 472 178 0;
+#X obj 391 283 t f;
+#X obj 470 262 loadbang;
+#X obj 391 230 - 1;
+#X obj 390 44 inlet;
+#X obj 118 278 expr $f1+$f2+$f3 \;;
+#X obj 467 93 sel 8;
+#X obj 118 299 tabwrite \$1;
+#X text 140 210 see text array diceRoll;
+#X text 63 36 generates 8 values out of possible 16;
+#N canvas 798 113 632 468 copyrightInfo 0;
+#X text 43 19 This program creates generative music on an Elektron
+Digitone. Copyright (C) 2019 Jerry Z. Raski This program is free software:
+you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation
+\, either version 3 of the License \, or (at your option) any later
+version. This program is distributed in the hope that it will be useful
+\, but WITHOUT ANY WARRANTY \; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details. You should have received a copy of
+the GNU General Public License along with this program. If not \, see
+<https://www.gnu.org/licenses/>.;
+#X text 74 306 j.raski@gmail.com;
+#X restore 23 408 pd copyrightInfo;
+#X connect 0 0 24 2;
+#X connect 1 0 24 1;
+#X connect 2 0 24 0;
+#X connect 3 0 5 0;
+#X connect 4 0 5 0;
+#X connect 6 0 2 0;
+#X connect 7 0 1 0;
+#X connect 7 0 2 0;
+#X connect 8 0 0 0;
+#X connect 8 0 1 0;
+#X connect 8 0 2 0;
+#X connect 10 0 13 0;
+#X connect 11 0 12 0;
+#X connect 11 0 3 0;
+#X connect 12 0 15 0;
+#X connect 12 1 19 0;
+#X connect 13 0 14 0;
+#X connect 13 0 22 0;
+#X connect 13 0 25 0;
+#X connect 14 0 13 1;
+#X connect 15 0 16 0;
+#X connect 16 0 10 0;
+#X connect 17 0 16 0;
+#X connect 18 0 20 0;
+#X connect 18 0 4 0;
+#X connect 19 0 13 1;
+#X connect 20 0 26 1;
+#X connect 21 0 3 0;
+#X connect 22 0 18 0;
+#X connect 23 0 11 0;
+#X connect 24 0 26 0;
+#X connect 25 0 17 0;

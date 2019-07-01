@@ -1,0 +1,71 @@
+#N canvas 947 506 526 331 10;
+#X obj 103 103 cnv 15 130 40 empty empty eSeq_\$1 0 6 0 9 -261682 -66577
+0;
+#X floatatom 175 127 4 0 0 2 off #1-offset-set #1-offset, f 4;
+#X floatatom 206 127 4 0 0 2 len #1-length-set #1-length, f 4;
+#X obj 63 187 inlet;
+#X obj 442 24 inlet;
+#X obj 348 21 inlet;
+#X obj 63 207 f 0;
+#X obj 63 227 + 1;
+#X obj 265 22 inlet;
+#X text 62 168 clock;
+#X obj 92 227 sel 0;
+#X obj 92 207 % 16;
+#X obj 97 275 outlet;
+#X floatatom 143 127 4 0 0 2 hits #1-hits-set #1-hits, f 4;
+#X obj 315 162 setctl \$1-hits;
+#X obj 315 180 setctl \$1-offset;
+#X obj 315 198 setctl \$1-length;
+#X obj 266 42 s \$1-hits;
+#X obj 348 41 s \$1-offset;
+#X obj 442 44 s \$1-length;
+#X obj 167 190 r \$1-hits;
+#X obj 167 211 r \$1-offset;
+#X obj 168 231 r \$1-length;
+#X obj 318 75 loadbang;
+#X msg 318 96 1;
+#X obj 318 116 s \$1-hits;
+#X obj 116 126 bng 15 250 50 0 empty empty reset -14 -6 0 10 -262144
+-1 -1;
+#X msg 116 172 0;
+#X obj 97 255 euclidR;
+#X msg 353 96 16;
+#X obj 354 135 s \$1-length;
+#X text 32 29 h=1 l=8 hits twice in 1 measure;
+#X text 32 42 h=1 l=16 hits once in 1 measure;
+#N canvas 798 113 440 468 copyrightInfo 0;
+#X text 43 19 This program creates generative music on an Elektron
+Digitone. Copyright (C) 2019 Jerry Z. Raski This program is free software:
+you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation
+\, either version 3 of the License \, or (at your option) any later
+version. This program is distributed in the hope that it will be useful
+\, but WITHOUT ANY WARRANTY \; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details. You should have received a copy of
+the GNU General Public License along with this program. If not \, see
+<https://www.gnu.org/licenses/>.;
+#X text 48 167 j.raski@gmail.com;
+#X restore 405 304 pd copyrightInfo;
+#X connect 3 0 6 0;
+#X connect 4 0 19 0;
+#X connect 5 0 18 0;
+#X connect 6 0 7 0;
+#X connect 6 0 28 0;
+#X connect 7 0 11 0;
+#X connect 8 0 17 0;
+#X connect 11 0 6 1;
+#X connect 11 0 10 0;
+#X connect 20 0 28 1;
+#X connect 21 0 28 2;
+#X connect 22 0 11 1;
+#X connect 22 0 28 3;
+#X connect 23 0 24 0;
+#X connect 23 0 29 0;
+#X connect 24 0 25 0;
+#X connect 26 0 27 0;
+#X connect 27 0 6 1;
+#X connect 28 0 12 0;
+#X connect 29 0 30 0;
+#X coords 0 -1 1 1 135 45 1 100 100;

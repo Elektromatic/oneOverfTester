@@ -1,0 +1,99 @@
+#N canvas 278 55 661 431 10;
+#X obj 102 103 cnv 15 75 65 empty empty expDist_\$1 1 6 0 9 -261880
+-1 0;
+#X obj 522 240 setctl \$1-engage;
+#X obj 104 115 tgl 12 0 \$1-engage \$1-engage-set engage 17 7 0 9 -262144
+-1 -1 1 1;
+#X obj 522 278 setctl \$1-lambda;
+#X floatatom 103 133 4 0 1000 1 lambda #1-lambda-set #1-lambda, f
+4;
+#X obj 522 92 r go;
+#X obj 522 128 s \$1-engage;
+#X obj 522 110 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 277 190 log;
+#X obj 277 209 * -1;
+#X obj 277 242 / 1;
+#X obj 277 321 delay;
+#X obj 277 109 t b f;
+#X obj 277 129 spigot;
+#X text 303 189 natural log;
+#X obj 277 301 * 1000;
+#X text 320 301 msec;
+#X text 123 321 delay then take next step;
+#X obj 314 209 t b f;
+#X text 301 242 average step time = 1/lambda;
+#X obj 159 241 spigot;
+#X obj 277 341 outlet;
+#X text 338 170 random # 0-1;
+#X text 139 37 This is inverse transform of the cumulative exponential
+dist;
+#X obj 277 88 r \$1-engage;
+#X obj 379 150 max 0.0001;
+#X obj 333 341 outlet;
+#X text 201 341 bang on step;
+#X obj 522 154 loadbang;
+#X obj 522 193 s \$1-lambda;
+#X obj 558 214 s \$1-minDur;
+#X obj 522 259 setctl \$1-minDur;
+#X floatatom 103 151 4 0 0 1 min_(ms) #1-minDur-set #1-minDur, f 4
+;
+#X obj 205 242 r \$1-minDur;
+#X obj 277 280 max;
+#X obj 277 260 t b f;
+#X obj 277 149 random 1e+007;
+#X obj 277 170 / 1e+007;
+#X text 376 341 time to next step (ms);
+#X obj 205 259 / 1000;
+#X text 20 178 minimum time between events;
+#X obj 379 130 r \$1-lambda;
+#N canvas 798 113 632 468 copyrightInfo 0;
+#X text 43 19 This program creates generative music on an Elektron
+Digitone. Copyright (C) 2019 Jerry Z. Raski This program is free software:
+you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation
+\, either version 3 of the License \, or (at your option) any later
+version. This program is distributed in the hope that it will be useful
+\, but WITHOUT ANY WARRANTY \; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+Public License for more details. You should have received a copy of
+the GNU General Public License along with this program. If not \, see
+<https://www.gnu.org/licenses/>.;
+#X text 74 306 j.raski@gmail.com;
+#X restore 59 388 pd copyrightInfo;
+#X msg 557 175 0;
+#X msg 522 175 4;
+#X obj 101 63 inlet;
+#X obj 101 81 s \$1-lambda;
+#X connect 5 0 7 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 35 0;
+#X connect 11 0 20 0;
+#X connect 11 0 21 0;
+#X connect 12 0 13 0;
+#X connect 12 1 13 1;
+#X connect 13 0 36 0;
+#X connect 15 0 11 0;
+#X connect 15 0 26 0;
+#X connect 18 0 10 0;
+#X connect 18 1 10 1;
+#X connect 20 0 36 0;
+#X connect 24 0 12 0;
+#X connect 24 0 20 1;
+#X connect 25 0 18 0;
+#X connect 28 0 44 0;
+#X connect 28 0 43 0;
+#X connect 33 0 39 0;
+#X connect 34 0 15 0;
+#X connect 35 0 34 0;
+#X connect 35 1 34 1;
+#X connect 36 0 37 0;
+#X connect 37 0 8 0;
+#X connect 39 0 34 0;
+#X connect 41 0 25 0;
+#X connect 43 0 30 0;
+#X connect 44 0 29 0;
+#X connect 45 0 46 0;
+#X coords 0 -1 1 1 80 70 1 100 100;
