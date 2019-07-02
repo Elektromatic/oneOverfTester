@@ -18,7 +18,7 @@ C  The Instruo module is a chord generating quantizer and is used here to create
 C  a "pad".
 C
 C
-C  Please see https://youtu.be/xxxxxxxxxxxxxxxxx for an example of it's use.
+C  Please see https://youtu.be/xJxycwq5i_k for an example of it's use.
 C
 C----------------------------------------------------------------------------
 C  Requirements:   Pure Data <https://puredata.info/downloads/pure-data>
